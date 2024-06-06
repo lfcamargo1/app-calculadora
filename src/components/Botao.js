@@ -9,7 +9,7 @@ export default props => {
     if (props.triplo) estilosBotao.push(estilos.botaoTriplo)
     if (props.cor) estilosBotao.push(estilos.botaoCor)
     return(
-        <TouchableHighlight>
+        <TouchableHighlight onPress={() => props.onClick(props.label)}>
             <Text style={estilosBotao}>{props.label}</Text>
         </TouchableHighlight>
     )
@@ -17,22 +17,25 @@ export default props => {
 
 const estilos = StyleSheet.create({
     botao: {
+        color: "#fafafa",
         fontSize: 40,
         width: width / 4,
         height: width / 4,
-        padding: 10,
+        padding: 20,
         textAlign: "center",
         borderWidth: 1,
-        borderColor: "#888",
-        backgroundColor: "#f0f0f0"
+        border: "none",
+        borderRadius: 50,
+        backgroundColor: "#333333"
     },
     botaoDuplo: {
         width: width/ 4 * 2
     },
     botaoTriplo: {
+        backgroundColor: "#a5a5a5",
         width: width/ 4 * 3
     },
     botaoCor: {
-        backgroundColor: "#0000"
+        backgroundColor: "#ff9f0a"
     }
 })
